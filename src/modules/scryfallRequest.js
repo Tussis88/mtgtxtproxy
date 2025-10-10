@@ -1,6 +1,5 @@
-async function scryfallRequest() {
+async function scryfallRequest(cards) {
     const url = "https://api.scryfall.com/cards/collection/";
-    const cards = ["black lotus", "opt", "dispel"];
 
     const identifiers = cards.map(name => ({ name }));
     const cardRequest = new Request(url, {
@@ -9,7 +8,7 @@ async function scryfallRequest() {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({ identifiers })
-    })
+    });
 
     try {
         const response = await fetch(cardRequest);

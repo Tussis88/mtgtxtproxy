@@ -1,16 +1,10 @@
 import "./styles/styles.css";
 
-//test
-import { check } from "./modules/123check";
-import test_image from "./assets/images/test_image.jpg";
 import { scryfallRequest } from "./modules/scryfallRequest";
+import { listParser } from "./modules/dataFetcher";
 
-console.log(check);
-document.body.textContent = check;
+const cards = ["black lotus", "opt", "dispel", "bfdd", "refurbished familiar"];
+const text = "4 black lotus \n 2 opt \n 3 dispel \n\n 5 asd";
 
-scryfallRequest();
-
-const imageTest = document.createElement("img");
-imageTest.src = test_image;
-
-document.body.appendChild(imageTest);
+scryfallRequest(cards);
+console.log(listParser(text));
