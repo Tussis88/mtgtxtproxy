@@ -1,25 +1,28 @@
-async function scryfallRequest(cards) {
+async function scryfallRequest(fetchedData) {
     const url = "https://api.scryfall.com/cards/collection/";
 
-    const identifiers = cards.map(name => ({ name }));
+    const cardNames = fetchedData.map(card => ({ name: card.cardName }));
     const cardRequest = new Request(url, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ identifiers })
+        body: JSON.stringify({ identifiers: cardNames })
     });
 
     try {
         const response = await fetch(cardRequest);
         if (!response.ok) {
-            throw new Error("Error: " + response.status);
+            throw new Error("ERROR: " + response.status);
         }
 
         const result = await response.json();
-        console.log(result);
+        if (result.not_found.length > 0) {
+            throw new Error("CARDS NOT FOUND: " + result.not_found.map(line => line.name).join(", "));
+        }
+        return result.data;
     } catch (error) {
-        console.error(error.message);
+        alert(error.message);
     }
 }
 
