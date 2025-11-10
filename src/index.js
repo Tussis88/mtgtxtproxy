@@ -14,7 +14,3 @@ scryfallRequest(test).then((result) => {
     console.log(result);
     proxyGenerator(result, test)
 });
-// const result = scryfallRequest(test);
-// console.log(result);
-
-// proxyGenerator(result, test);

@@ -1,3 +1,11 @@
+:root {
+    --background: #fffaf3;
+    --foreground: #faf4ed;
+    --text: #1f1d2e;
+    --textprint: #585858;
+    --shadow: 2px 2px 6px rgba(60, 0, 0, 0.1);
+}
+
 @font-face {
     font-family: "RobotoMono";
     src: url("../assets/fonts/RobotoMono-Medium.ttf");
@@ -5,5 +13,60 @@
 
 body {
     font-family: "RobotoMono";
-    background-color: aquamarine;
+    background-color: var(--background);
+    color: var(--text);
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 2rem;
+    padding: 5rem 5rem;
+    margin: auto;
+    width: 100ch;
+}
+
+.card {
+    position: relative;
+    background-color: var(--foreground);
+    border-style: dashed;
+    border-width: 1px;
+    border-color: var(--text);
+    font-size: x-small;
+    width: 12rem;
+    aspect-ratio: 2 / 3;
+    padding: 1ch;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 18ch;
+}
+
+.type {
+    margin-bottom: 2ch;
+}
+
+.color {
+    position: absolute;
+    bottom: 1ch;
+}
+
+.stats {
+    position: absolute;
+    bottom: 1ch;
+    right: 2ch;
+}
+
+@media print {
+    .noprint {
+        display: none;
+    }
+
+    .card {
+        color: var(--textprint);
+        border: 1px dashed var(--textprint);
+
+    }
 }
