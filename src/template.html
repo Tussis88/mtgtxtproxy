@@ -4,20 +4,23 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Prox-o-matic</title>
 </head>
 
 <body>
     <div class="noprint">
-        <h1 class="title">Proxy-o-matic</h1>
+        <h1 class="title">Prox-o-matic</h1>
         <div>
             <form class="search">
-                <label for="searcharea">type here the cards to proxy</label>
+                <label for="searcharea">Inserisci qui le carte da proxare</label>
                 <textarea type="textarea" name="searcharea" rows="20" cols="40" id="searcharea" placeholder="4 Black Lotus
 4 Ancestral Recall
 4 Time Walk
 3 Force of Will"></textarea>
-                <button type="submit">Generate</button>
+                <div class="buttons">
+                    <button type="submit" id="generate">Genera</button>
+                    <button id="print">Stampa</button>
+                </div>
             </form>
         </div>
     </div>
