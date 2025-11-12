@@ -4,7 +4,7 @@ function dataFetcher(text) {
     const cardName = text.map(line => line.split(" ").slice(1).join(" "));
     const data = quantity.map((line, index) => ({ quantity: quantity[index], cardName: cardName[index] }));
 
-    const filteredData = data.filter(line => !isNaN(line.quantity))
+    const filteredData = data.filter(line => (!isNaN(line.quantity) && line.cardName !== ""))
 
     return filteredData
 }
