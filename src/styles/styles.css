@@ -96,8 +96,8 @@ body {
     }
 
     .content {
-        grid-template-columns: autofill;
-        gap: 1 rem;
+        grid-template-columns: repeat(4, 12rem);
+        gap: 1rem;
         margin: 0;
         padding: 0;
     }

@@ -1,5 +1,8 @@
+const contentDiv = document.querySelector(".content");
+
 function proxyGenerator(cardsArray, userData) {
     const quantityArray = userData.map(line => line.quantity);
+    contentDiv.textContent = "";
 
     cardsArray.forEach((cardObj, index) => {
         for (let i = 0; i < quantityArray[index]; i++) {
@@ -9,7 +12,6 @@ function proxyGenerator(cardsArray, userData) {
 }
 
 function createProxyCard(cardData) {
-    const contentDiv = document.querySelector(".content");
 
     const cardDiv = document.createElement("div");
     cardDiv.classList.add("card");
